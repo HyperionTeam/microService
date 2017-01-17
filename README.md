@@ -1,5 +1,7 @@
 # 微服务使用
 
+> 各工程下src/main/resources/*.properties 纪录着本服务连接其他服务的ip，确保网络可通
+
 ### 介绍
 * eureka：服务注册与发现中心
 * config：分布式配置中心
