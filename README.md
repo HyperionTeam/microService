@@ -10,7 +10,7 @@
 * springcloudGoverB：治理服务B，接入了actuator监控和zipkin服务跟踪
 * springcloudStrategy：策略服务，访问mongodb、治理服务A/B，接入了hystrix容错、actuator监控和zipkin服务跟踪
 * hystrix-dashboard：hystrix控制平台，可以查看有哪些接口存活、访问量、是否打开熔断器、异常率、超时率、响应时间分布等
-* zipkin：服务跟踪平台，可查看有哪些服务、哪些接口、服务间的依赖关系、响应时间等
+* zipkin：Twitter开源的服务跟踪平台，可查看有哪些服务、哪些接口、服务间的依赖关系、响应时间等
 
 ![微服务框架图](https://github.com/HyperionTeam/microService/blob/master/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%9B%BE.png)
 
