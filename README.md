@@ -4,16 +4,18 @@
 
 ### 介绍
 * eureka：服务注册与发现中心
-* config：分布式配置中心
+* config：分布式配置中心，可从github或本地文件提取配置
+* configClient：配置客户端服务，访问配置中心中的配置
 * springcloudGoverA：治理服务A，接入了actuator监控和zipkin服务跟踪
 * springcloudGoverB：治理服务B，接入了actuator监控和zipkin服务跟踪
 * springcloudStrategy：策略服务，访问mongodb、治理服务A/B，接入了hystrix容错、actuator监控和zipkin服务跟踪
 * hystrix-dashboard：hystrix控制平台，可以查看有哪些接口存活、访问量、是否打开熔断器、异常率、超时率、响应时间分布等
 * zipkin：服务跟踪平台，可查看有哪些服务、哪些接口、服务间的依赖关系、响应时间等
 
+
 ### 使用
 
-* 依次启动eureka、config、springcloudGoverA、springcloudGoverB、springcloudStrategy、hystrixDashboard
+* 依次启动eureka、config、configClient、springcloudGoverA、springcloudGoverB、springcloudStrategy、hystrixDashboard
 	* 启动方法：cd进各个服务目录，依次执行mvn install、java -jar target/xxx.jar
 * 使用hystrix-dashboard，两种方法：
 	* 方法1：hystrix-dashboard独立为一个微服务
