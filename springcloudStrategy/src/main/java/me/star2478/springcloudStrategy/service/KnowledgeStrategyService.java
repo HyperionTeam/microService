@@ -76,10 +76,6 @@ public class KnowledgeStrategyService {
 		int expire = knowledgeStrategyConfig.getExpire();
 		List<AppStrategyTrigger> appStrategyTriggers = knowledgeStrategyConfig.getAppStrategyTriggers();
 		
-		/////// 调用下游的治理服务
-		test(key, appId, os, appVersion, data);
-		///////
-		
 		// 将基本信息同步到mongodb
 		synBaseInfo2Mongodb(key, appId, os, appVersion);
 		
@@ -254,30 +250,6 @@ public class KnowledgeStrategyService {
 
 		// 写进local内存///////////////
 		return knowledgeStrategyConfig;
-	}
-	
-	private void test(String key, String appId, String os, String appVersion, Map<String, Object> data) {
-
-		int screenSize = Integer.valueOf(data.get("screenSize").toString());
-		if (screenSize <= 10) {
-			Object result = restTemplate.getForEntity("http://GOVERA/hello", String.class).getBody();
-			System.out.println("\n\nresult:" + result);
-		} else {
-
-			Object result = restTemplate.getForEntity("http://GOVERB/hello", String.class).getBody();
-			System.out.println("\n\nresult:" + result);
-		}
-//		KnowledgeStrategyStatDTO knowledgeStrategyStatDTO = new KnowledgeStrategyStatDTO();
-//		knowledgeStrategyStatDTO.setAppId(appId);
-//		knowledgeStrategyStatDTO.setAppVersion(appVersion);
-//		knowledgeStrategyStatDTO.setKey(key);
-//		knowledgeStrategyStatDTO.setOs(os);
-//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		String curTime = df.format(new Date());
-//		knowledgeStrategyStatDTO.setTime(curTime);
-//		knowledgeStrategyStatDTO.setTriggerName("test");
-//		knowledgeStrategyStatDTO.setValue(screenSize);
-//		knowledgeStrategyStatDAO.save(knowledgeStrategyStatDTO);
 	}
 	
 }

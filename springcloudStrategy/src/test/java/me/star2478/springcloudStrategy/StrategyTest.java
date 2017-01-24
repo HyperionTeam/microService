@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.stereotype.Repository;
@@ -39,6 +41,10 @@ public class StrategyTest {
 //	public void setUp() {
 //		userRepository.deleteAll();
 //	}
+	
+	@Autowired
+	private RedisTemplate<String, String> testRedisTemplate;
+
 	@Test
 	public void test() throws Exception {
 		 assertTrue( true );
@@ -64,6 +70,14 @@ public class StrategyTest {
 ////		knowledgeStrategyConfigDTO.setExpire(2000);
 ////		knowledgeStrategyConfigDTO.setOpTime("2018-01-01 00:00:00");
 ////		knowledgeStrategyConfigDAO.save(knowledgeStrategyConfigDTO);
+	}
+	
+	@Test
+	public void testRedis() {
+		// 保存字符串
+		testRedisTemplate.opsForValue().set("aaa", "111");
+		Assert.assertEquals("111", testRedisTemplate.opsForValue().get("aaa"));
+
 	}
 
 }
