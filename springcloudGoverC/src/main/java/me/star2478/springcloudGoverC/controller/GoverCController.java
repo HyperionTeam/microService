@@ -1,4 +1,4 @@
-package me.star2478.springcloudGoverA.controller;
+package me.star2478.springcloudGoverC.controller;
 
 
 import org.apache.log4j.Logger;
@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GoverAController {
+public class GoverCController {
     private final Logger logger = Logger.getLogger(getClass());
     
     @Autowired
     private DiscoveryClient client;
     
-    @RequestMapping(value = "/goverA", method = RequestMethod.GET)
-    public Integer goverA(@RequestParam Integer a, @RequestParam Integer b) {
+    @RequestMapping(value = "/goverC", method = RequestMethod.GET)
+    public Integer goverC(@RequestParam Integer a, @RequestParam Integer b) {
         ServiceInstance instance = client.getLocalServiceInstance();
         Integer r = a + b;
-        logger.info("/goverA, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + r);
+        logger.info("/goverC, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + r);
         return r;
     }
     
@@ -29,6 +29,6 @@ public class GoverAController {
     public String hello() {
 //        ServiceInstance instance = client.getLocalServiceInstance();
 //        logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
-        return "GoverA: Hello World";
+        return "GoverC: Hello World";
     }
 }

@@ -1,4 +1,4 @@
-package me.star2478.springcloudGoverA;
+package me.star2478.springcloudGoverC;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import me.star2478.springcloudGoverA.controller.RibbonController;
+import me.star2478.springcloudGoverC.controller.GoverCController;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -21,18 +21,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-public class GoverATest {
+public class GoverCTest {
 
 	private MockMvc mvc;
 
 	@Before
 	public void setUp() throws Exception {
-		mvc = MockMvcBuilders.standaloneSetup(new RibbonController()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new GoverCController()).build();
 	}
 
 	@Test
 	public void testHello() throws Exception {
-		
+		mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().string(equalTo("GoverC: Hello World")));
 	}
 
 }
