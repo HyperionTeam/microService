@@ -12,8 +12,7 @@
 	<context:property-placeholder location="classpath:application.properties" />
 
 	<!-- <mongo:mongo-client id="mongo" host="${mongodb.host}"
-		port="${mongodb.port}" credentials="${mongodb.username}:${mongodb.password}@${mongodb.databaseName}" />
- -->
+		port="${mongodb.port}" credentials="${mongodb.username}:${mongodb.password}@${mongodb.databaseName}" /> -->
  	 <mongo:mongo host="${mongodb.host}" port="${mongodb.port}" /> 
 	<mongo:db-factory dbname="${mongodb.databaseName}"
 		mongo-ref="mongo" />
@@ -55,8 +54,8 @@
 		<constructor-arg index="1" value="${redis.host}" />
 		<constructor-arg index="2" value="${redis.port}" />
 		<constructor-arg index="3" value="${redis.maxWait}" />
-<!-- 	    <constructor-arg index="4" value="${redis.pass}" />
- -->      </bean>
+<!-- 	    <constructor-arg index="4" value="${redis.pass}" /> -->      
+	</bean>
 
 
 	<bean id="configProperties"
