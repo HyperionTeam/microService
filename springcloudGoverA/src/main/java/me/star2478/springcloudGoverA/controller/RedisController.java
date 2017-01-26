@@ -28,7 +28,6 @@ import me.star2478.springcloudGoverA.redis.User;
 public class RedisController {
     private final Logger logger = Logger.getLogger(getClass());
     
-    // redis
 	@Autowired
 	private RedisTemplate<String, String> redisTemplateString;
 	
@@ -84,7 +83,7 @@ public class RedisController {
     	ops.delete(key, field + "-2");
     	printAllFieldsAndValues(ops, key);
     	// 设置过期时间
-//        redisTemplateHash.expire(key, 10, TimeUnit.SECONDS);
+        redisTemplateHash.expire(key, 10, TimeUnit.SECONDS);
     	return true;
     }
     

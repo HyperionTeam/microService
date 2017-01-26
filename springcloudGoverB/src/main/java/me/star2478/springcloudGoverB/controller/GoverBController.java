@@ -24,7 +24,7 @@ public class GoverBController {
     private DiscoveryClient client;
     
     @RequestMapping(value = "/goverB", method = RequestMethod.GET)
-    public Integer goverA(@RequestParam Integer a, @RequestParam Integer b) {
+    public Integer goverB(@RequestParam Integer a, @RequestParam Integer b) {
         ServiceInstance instance = client.getLocalServiceInstance();
         Integer r = a + b;
 //        logger.info("====" + abc);

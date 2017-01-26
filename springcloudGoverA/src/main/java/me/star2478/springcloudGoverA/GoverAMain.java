@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @EnableCircuitBreaker 	// Hystrix熔断器
-@EnableHystrixDashboard	// Hystrix dashbord
 @EnableDiscoveryClient	// 服务注册到Eureka
 //@EnableTask				// 任务
 @SpringBootApplication

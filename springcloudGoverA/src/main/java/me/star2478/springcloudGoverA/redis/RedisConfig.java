@@ -14,11 +14,11 @@ import org.springframework.data.redis.serializer.*;
 
 /**
  * 
- * redis配置类，注入必要的bean
- * 
+ * ！！！！！！！！！！！！！！！！！！！！！！！！！！！
  * 高能高能高能：如果value是String，不需要此配置类！！
  * 高能高能高能：如果value不是String对象，比如User，需要此配置类，且需要自己实现对象的序列化和反序列化，见RedisObjectSerializer
  * 
+ * redis配置类，注入必要的bean
  * @author heliuxing
  *
  */
@@ -34,6 +34,7 @@ public class RedisConfig {
 	@Value("${spring.redis.password}")
 	private String password;
 	
+	// 此处配置了host、port、pwd，需要改进，研究一下如何不需要这里的配置
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
 //        return new JedisConnectionFactory();
